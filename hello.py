@@ -1,3 +1,8 @@
-print("This is the feature branch add!")
+def greet():
+    return "Hello CI CD Workflow!"
+
+if __name__ == "__main__":
+    print(greet())
+
 
 
