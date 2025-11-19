@@ -1,13 +1,15 @@
-from flask import Flask
+import os
+from datetime import datetime
 
-app = Flask(__name__)
+def greet():
+    msg = os.getenv("APP_MESSAGE", "Default Message")
 
-@app.route("/")
-def home():
-    return "Hello DevOps Workflow, your Docker container is running!"
+    # write to log file
+    with open("app.log", "a") as f:
+        f.write(f"{datetime.now()}  {msg}\n")
+
+    return msg
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-
-
+    print(greet())
 
